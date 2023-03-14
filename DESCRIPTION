@@ -8,6 +8,9 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Depends: 
     rlang,
+    tibble,
+    DescTools,
+    HDInterval,
     stringr (>= 1.5.0),
     dplyr (>= 1.1.0),
     tidyr (>= 1.3.0),
