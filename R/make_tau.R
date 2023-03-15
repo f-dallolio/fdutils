@@ -8,31 +8,75 @@
 #'
 #' @examples
 make_tau <- function(num, hhi){
-  hhi <- force_round(hhi, 3)
-  cfx_num <- num * hhi - 1
-  cfx_den <- num - 1
-  cfx0 <- force_round(cfx_num / cfx_den)
-  cfx <- max(c(0, cfx0))
-  sqrt(cfx)
+  old <- tibble(id = seq_along(num),num , hhi)
+  new <- old %>%
+    filter(num > 1) %>%
+    mutate(
+      cfx_num = num * hhi - 1,
+      cfx_den = num - 1,
+      cfx0 = cfx_num / cfx_den,
+      cfx = cfx0 * (cfx0 > 0),
+      tau = sqrt(cfx),
+      nfx = hhi - cfx
+    )
+  out <- old %>%
+    left_join(new, by = "id") %>%
+    mutate(
+      across(
+        everything(),
+        ~ if_else(is.na(.x), 0, .x)
+      )
+    ) %>%
+    select(cfx, nfx, tau)
+  out$tau
 }
 
 #' @export
 make_cfx <- function(num, hhi){
-  hhi <- force_round(hhi, 3)
-  cfx_num <- num * hhi - 1
-  cfx_den <- num - 1
-  cfx0 <- force_round(cfx_num / cfx_den)
-  cfx <- max(c(0, cfx0))
-  cfx
+  old <- tibble(id = seq_along(num),num , hhi)
+  new <- old %>%
+    filter(num > 1) %>%
+    mutate(
+      cfx_num = num * hhi - 1,
+      cfx_den = num - 1,
+      cfx0 = cfx_num / cfx_den,
+      cfx = cfx0 * (cfx0 > 0),
+      tau = sqrt(cfx),
+      nfx = hhi - cfx
+    )
+  out <- old %>%
+    left_join(new, by = "id") %>%
+    mutate(
+      across(
+        everything(),
+        ~ if_else(is.na(.x), 0, .x)
+      )
+    ) %>%
+    select(cfx, nfx, tau)
+  out$cfx
 }
 
 #' @export
 make_nfx <- function(num, hhi){
-  hhi <- force_round(hhi, 3)
-  cfx_num <- num * hhi - 1
-  cfx_den <- num - 1
-  # nfx <- if_else( cfx_den <= 0, 0, hhi - force_round(cfx_num / cfx_den) )
-  nfx0 <- hhi - force_round(cfx_num / cfx_den)
-  nfn = min(c(0.5, nfx0))
-  nfx
+  old <- tibble(id = seq_along(num),num , hhi)
+  new <- old %>%
+    filter(num > 1) %>%
+    mutate(
+      cfx_num = num * hhi - 1,
+      cfx_den = num - 1,
+      cfx0 = cfx_num / cfx_den,
+      cfx = cfx0 * (cfx0 > 0),
+      tau = sqrt(cfx),
+      nfx = hhi - cfx
+    )
+  out <- old %>%
+    left_join(new, by = "id") %>%
+    mutate(
+      across(
+        everything(),
+        ~ if_else(is.na(.x), 0, .x)
+      )
+    ) %>%
+    select(cfx, nfx, tau)
+  out$nfx
 }
