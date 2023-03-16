@@ -19,4 +19,6 @@ Padding numeric values
 }
 \examples{
 numpad(1:15)
+
+
 }

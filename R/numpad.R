@@ -8,10 +8,12 @@
 #'
 #' @examples
 #' numpad(1:15)
-
+#'
+#'
 numpad <- function(x, pad = "0") {
-  stopifnot("x must be coercible to a character vector" = is.integer(x))
-  stopifnot("pad must be string" = is_string(pad))
+  x <- as.integer(x)
+  stopifnot("x must be coercible to an integer vector" = is.integer(x))
+  stopifnot("pad must be string" = is.character(pad))
   x <- as.character(x)
   width <- max(nchar(x))
   # max_nchar <- max(nchar(x))
