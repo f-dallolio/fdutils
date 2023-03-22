@@ -31,7 +31,7 @@ force_ceiling <- function(x, decimals = 3){
 
   multiplier <- 10 ^ decimals
 
-  as.integer(ceiling(x * multiplier)) / multiplier2
+  as.integer(ceiling(x * multiplier)) / multiplier
 }
 
 #' @export
