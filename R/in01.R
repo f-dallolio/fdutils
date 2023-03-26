@@ -1,15 +1,24 @@
-#' Mini-max - coerce to (0/1) or (0/100)
+#' Between 0 and 1
 #'
 #' @param x
-#' @param min
-#' @param max
-#' @param x100
-#' @param alpha
+#' @param ...
 #'
 #' @return
 #' @export
 #'
 #' @examples
+logit <- function(x, ...){
+  x <- x[!is.na(x)]
+  qlogis(x)
+}
+
+#' @export
+inv_logit <- function(x){
+  x <- x[!is.na(x)]
+  plogis(x)
+}
+
+#' @export
 minmax <- function(x, min, max, x100 = FALSE, alpha = 0) {
   alpha1 = 1 - (alpha)
   x <- x[!is.na(x)]
@@ -20,3 +29,5 @@ minmax <- function(x, min, max, x100 = FALSE, alpha = 0) {
   }
   return(out)
 }
+
+

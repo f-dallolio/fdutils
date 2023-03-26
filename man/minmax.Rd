@@ -4,10 +4,10 @@
 \alias{minmax}
 \title{Mini-max - coerce to (0/1) or (0/100)}
 \usage{
-minmax(x, min = NULL, max = NULL, to_100 = FALSE)
+minmax(x, min, max, x100 = FALSE, alpha = 0)
 }
 \arguments{
-\item{to_100}{}
+\item{alpha}{}
 }
 \description{
 Mini-max - coerce to (0/1) or (0/100)

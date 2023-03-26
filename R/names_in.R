@@ -1,18 +1,14 @@
-#' Not in
+#' Names of Vector, Table in a character vector
 #'
 #' @param x
-#' @param y
+#' @param values
+#' @param negate
+#' @param which
 #'
 #' @return
 #' @export
 #'
 #' @examples
-`%notin%` <- function(x, table){
-  !(x %in% table)
-}
-
-nomatch <- function(...) !match(...)
-
 names_in <- function(x, values, negate = FALSE, which = FALSE){
   out <- names(x) %in% values
   if(negate){
