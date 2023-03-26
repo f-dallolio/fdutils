@@ -13,12 +13,12 @@
 minmax <- function(x, min = NULL, max = NULL, x100 = FALSE, alpha = 0) {
   alpha1 = 1 - alpha
   if(is.null(min)){
-    min <- min(x, na.rm = TRUE)
+    min <- min(x)
   }
   if(is.null(max)){
-    max <- max(x, na.rm = TRUE)
+    max <- max(x)
   }
-  med <- quantile(x, 0.5, na.rm = TRUE)
+  med <- median(x)
   out <-  (((x - med) * alpha1 + med)  / (max - min))
   if(x100){
     return(out * 100)
