@@ -4,7 +4,7 @@
 \alias{minmax}
 \title{Mini-max - coerce to (0/1) or (0/100)}
 \usage{
-minmax(x, min, max, x100 = FALSE, alpha = 0)
+minmax(x, min = NULL, max = NULL, x100 = FALSE, alpha = 0)
 }
 \arguments{
 \item{alpha}{}
