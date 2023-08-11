@@ -7,6 +7,7 @@
 #' @export
 #'
 #' @examples
+#
 #' x <- c(1:3, rep(0,4), 5:7, rep(0,6), 9:10)
 #' consecutive(x == 0)
 #' consecutive(x == 0, show_where = TRUE)
