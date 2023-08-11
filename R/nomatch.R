@@ -6,6 +6,6 @@
 #' @export
 #'
 #' @examples
-no_match <- function(...) {
+nomatch <- function(...) {
   !match(...)
 }
