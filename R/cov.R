@@ -25,14 +25,15 @@ cov <- function(x,
   if(original){
     return(cov_mat)
   }
-  pair_tbl <- make_pairwise(.tbl) |>
+  pair_tbl <- make_pairwise(.tbl) %>%
     rlang::set_names(c("x1", "x2"))
-  out <- pair_tbl |>
+  out <- pair_tbl %>%
     dplyr::mutate(
-      cov = purrr::map2_dbl(
+      cov = purrr::map2(
         .x = x1, .y = x2,
         .f = ~ cov_mat[.x, .y] )
-    )
+    ) %>%
+    purrr::list_c()
   if(out_list){ return(as.list(out)) }
   out
 }

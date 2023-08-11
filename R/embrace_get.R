@@ -7,6 +7,8 @@
 #' @return
 #' @export
 #'
+#' @importFrom stringr str_match_all
+#'
 #' @examples
 embrace_get <- function(.x, .left = "\\(", .right  = "\\)")
                         # , re_embrace = "(@.x@)")

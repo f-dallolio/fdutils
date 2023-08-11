@@ -11,6 +11,7 @@ Imports:
     tibble,
     DescTools,
     HDInterval,
+    rlang,
     stringr (>= 1.5.0),
     dplyr (>= 1.1.0),
     tidyr (>= 1.3.0),

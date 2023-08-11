@@ -6,6 +6,13 @@
 #' @import tibble dplyr purrr
 #' @export
 #'
+#' @importFrom tibble is_tibble
+#' @importFrom tibble as_tibble
+#' @importFrom rlang set_names
+#' @importFrom dplyr mutate
+#' @importFrom magrittr %>%
+#'
+#'
 #' @examples
 #'
 cor <- function (x,
